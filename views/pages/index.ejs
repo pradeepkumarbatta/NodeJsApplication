@@ -8,23 +8,7 @@
 
   <% include ../partials/nav.ejs %>
 <script type="text/javascript" src="https://login.salesforce.com/canvas/sdk/js/48.0/canvas-all.js"></script>
-<script>
-var sr = JSON.parse('<%=signedRequestJson%>');
-var url = sr.context.links.chatterFeedsUrl+"/news/"+sr.context.user.userId+"/feed-items";
-var body = {body : {messageSegments : [{type: "Text", text: "Some Chatter Post"}]}};
 
-Sfdc.canvas.client.ajax(url,
-    {client : sr.client,
-        method: 'POST',
-        contentType: "application/json",
-        data: JSON.stringify(body),
-        success : function(data) {
-        if (201 === data.status) {
-             alert("Success");
-             }
-        }
-    });
-</script>
 <div class="jumbotron text-center">
   <div class="container">
     <a href="/" class="lang-logo">
