@@ -74,6 +74,13 @@
     --------------
     
     <script>
+    Sfdc.canvas(function() {
+        var sr = JSON.parse('<%=signedRequestJson%>');
+        // Save the token
+        Sfdc.canvas.oauth.token(sr.oauthToken);
+        console.log(':2222222:::'+sr.context.user.fullName);
+    });
+    
     function callback(msg) {
        if (msg.status !== 200) {
           alert("Error: " + msg.status);
