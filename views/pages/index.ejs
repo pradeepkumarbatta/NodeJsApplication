@@ -73,31 +73,6 @@
     
     --------------
     
-    <script>
-    Sfdc.canvas(function() {
-        var sr = JSON.parse('<%=signedRequestJson%>');
-        // Save the token
-        Sfdc.canvas.oauth.token(sr.oauthToken);
-        console.log(':2222222:::'+sr.context.user.fullName);
-    });
-    
-    function callback(msg) {
-       if (msg.status !== 200) {
-          alert("Error: " + msg.status);
-          return;
-       }
-       alert("Payload: ", msg.payload);
-    
-                
-    var ctxlink = Sfdc.canvas.byId("ctxlink");
-    var client = Sfdc.canvas.oauth.client();
-    ctxlink.onclick=function() {
-       Sfdc.canvas.client.ctx(callback, client)
-       };
-    }
-</script>
-
-<a id="ctxlink" href="#">Get Context</a>
 
 </body>
 </html>
