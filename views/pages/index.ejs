@@ -3,7 +3,7 @@
 <head>
 <%@ page import="canvas.SignedRequest" %>
 <%@ page import="java.util.Map" %>
-<%
+<script>
     // Pull the signed request out of the request body and verify and decode it.
     Map<String, String[]> parameters = request.getParameterMap();
     String[] signedRequest = parameters.get("signed_request");
@@ -11,9 +11,10 @@
         This app must be invoked via a signed request!<%
         return;
     }
-    String yourConsumerSecret="444EA80829D8DD9C5F3D6F551E2DE4306D25656A7DD9AD0BC41F8E99F5584BE4";
-    String signedRequestJson = SignedRequest.verifyAndDecodeAsJson(signedRequest[0], yourConsumerSecret);
-%>
+    var yourConsumerSecret="444EA80829D8DD9C5F3D6F551E2DE4306D25656A7DD9AD0BC41F8E99F5584BE4";
+    var signedRequestJson = SignedRequest.verifyAndDecodeAsJson(signedRequest[0], yourConsumerSecret);
+    alert("signedRequestJson::"+signedRequestJson);
+</script>
     <title>Hello World Canvas Example</title>
 
     <link rel="stylesheet" type="text/css" href="/sdk/css/connect.css" />
