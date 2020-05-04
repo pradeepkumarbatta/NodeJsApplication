@@ -27,7 +27,6 @@
 ==================
 <script>
 
-        function loginHandler(e) {
             var uri;
             if (! Sfdc.canvas.oauth.loggedin()) {
                 uri = Sfdc.canvas.oauth.loginUrl();
@@ -45,9 +44,7 @@
                 login.innerHTML = "Login";
                 Sfdc.canvas.byId("oauth").innerHTML = "";
             }
-            return false;
-        }
-
+console.log("LL::::");
         // Bootstrap the page once the DOM is ready.
         Sfdc.canvas(function() {
             // On Ready...
